@@ -28,7 +28,7 @@ source("https://raw.githubusercontent.com/GRECA-UQAM/LMM-GLMM/main/simulate_data
 
 # Télécharger les librairies nécessaires pour produire le graphique
 # Load the libraries needed to produce the plot
-packages <- c("lme4", "viridis")
+packages <- c("lme4", "ggplot2", "viridis")
 lapply(packages, require, character.only = TRUE)
 
 # ==============================================================================
