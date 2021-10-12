@@ -1,17 +1,19 @@
 # ==============================================================================
-# Graphique 3D d'une interaction entre deux variables continues
-# 3D plot showcasing an interaction between two continuous variables
+
+#       Graphique 3D d'une interaction entre deux variables continues
+#     3D plot showcasing an interaction between two continuous variables
+
 # ==============================================================================
 
 
-# Le premier type de graphique que nous allons créer est une surface 3D 
+# Le graphique que nous allons créer est une surface 3D 
 # que nous ferons à l'aide de la librarie plotly. C'est l'une des façons 
 # de représenter l'interaction entre deux variables continues.
 # ------------------------------------------------------------------------------
 
 
 
-
+# ==============================================================================
 # 1. Importer le jeu de données et charger les libraries
 #    Import the dataset and load libraries
 # ==============================================================================
@@ -30,9 +32,13 @@ lapply(packages, require, character.only = TRUE)
 data$environnement <- as.factor(data$environnement)
 
 # ==============================================================================
+# ==============================================================================
 
 
 
+
+
+# ==============================================================================
 # 2. Calculer les valeurs de l'axe z (3D)
 #    Calculate values of the z axis (3D)
 # ==============================================================================
@@ -57,9 +63,13 @@ z1 <- outer(x1, x2, FUN = function(x, y) { fixef(model)[1] +
                                           })
 
 # ==============================================================================
+# ==============================================================================
 
 
 
+
+
+# ==============================================================================
 # 3. On produit la surface 3D
 #    Produre the 3D surface plot
 # ==============================================================================
@@ -160,6 +170,8 @@ surface_plot <- plot_ly() %>%
                                   # Finalement, on a spécifié les paramètres graphiques
                                   # Here, we specify layout parameters
                       hide_colorbar()
+
+# ==============================================================================
 # ==============================================================================
 
 
