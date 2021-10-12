@@ -5,12 +5,12 @@
 
 
 
-# Le second graphique que nous allons créer 
-# présentera l'interaction en montrant les courbes prédites
+# Le graphique que nous allons créer 
+# présentera une interaction en montrant les courbes prédites
 # par l'équation du modèle pour le 1er et le 3e quartile de la 
 # covariable x2. Nous utiliserons la librarie ggplot2.
 
-# The second graph we are going to create will display 
+# The graph we are going to create will display 
 # a continuous interaction from the predicted
 # values of the model equation for the 1st and 3rd quantile
 # of the x2 covariate. We will use ggplot2.
