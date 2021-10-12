@@ -1,6 +1,6 @@
 # ==============================================================================
-# Graphique d'une interaction entre deux variables continues
-# Plot showcasing an interaction between two continuous variables
+#         Graphique d'une interaction entre deux variables continues
+#       Plot showcasing an interaction between two continuous variables
 # ==============================================================================
 
 
@@ -14,10 +14,11 @@
 # a continuous interaction from the predicted
 # values of the model equation for the 1st and 3rd quantile
 # of the x2 covariate. We will use ggplot2.
+# ------------------------------------------------------------------------------
 
 
 
-
+# ==============================================================================
 # 1. Importer le jeu de données et charger les libraries
 #    Import the dataset and load libraries
 # ==============================================================================
@@ -32,10 +33,13 @@ packages <- c("lme4", "ggplot2", "viridis")
 lapply(packages, require, character.only = TRUE)
 
 # ==============================================================================
+# ==============================================================================
 
 
 
 
+
+# ==============================================================================
 # 2. Produire un modèle mixte simple
 #    Produce a simple mixed model
 # ==============================================================================
@@ -43,10 +47,13 @@ lapply(packages, require, character.only = TRUE)
 model <- lmer(y ~ x1 + x2 + x1:x2 + (1|id), data = data)
 
 # ==============================================================================
+# ==============================================================================
 
 
 
 
+
+# ==============================================================================
 # 3. Générer les matrices d'effets modèle pour faire le graphique
 #    Generate effects model matrixes for plotting
 # ==============================================================================
@@ -77,10 +84,11 @@ y <- mm%*%fixef(model)[c(1:4)]
 # Confidence and prediction intervals
 x1_p <- diag(mm %*% tcrossprod(vcov(model)[c(1:4), c(1:4)], mm))
 x1_t <- x1_p + 
-        VarCorr(model)$id[1] + # variance de id - id variance
-        attr(VarCorr(model), "sc") # variance résiduelle - residual variance
+        VarCorr(model)$id[1] + # variance de id / id variance
+        attr(VarCorr(model), "sc") # variance résiduelle / residual variance
 
 # Compute final dataframe
+# Créer le jeu de données final
 newdat <- data.frame(
                      x1 = newdat$x1,
                      x2 = newdat$x2,
@@ -94,10 +102,12 @@ newdat <- data.frame(
 newdat$quantile <- rep(c("25% quantile", "75% quantile"), each = 100)
 
 # ==============================================================================
+# ==============================================================================
 
 
 
 
+# ==============================================================================
 # 4. Créer le graphique
 #    Create the graph
 # ==============================================================================
@@ -154,4 +164,5 @@ plot <- ggplot(data = newdat,
               plot.margin = unit(c(2, 0.5, 2, 0.5), "lines"),
               panel.grid = element_blank(),
               panel.background = element_blank())
+# ==============================================================================
 # ==============================================================================
