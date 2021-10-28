@@ -155,7 +155,11 @@ surface_plot <- plot_ly() %>%
                                               opacity = 0.3),
                                 showlegend = FALSE) %>% 
                                 # Dans la partie ci-haut, on a créé le nuage de points 3D
+                                # (la valeur y a été générée avec le code qu'on a sourcé au début)
+                                # (c'est notre variable réponse du modèle)
                                 # In the above part, we added the 3D scatterplot
+                                # (the y value was generated from the sourced code)
+                                # (it is the model's response variable)
                       add_surface(z = z1,
                                   x = x2, 
                                   y = x1,
